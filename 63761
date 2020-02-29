@@ -1,0 +1,160 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace DM_ASSIGNMENT
+{
+
+    class Program
+    {
+        // Q2)
+        public int euclidean(int x, int y)
+        {
+            if (x == 0)
+            {
+                return y;
+            }
+            else
+            {
+                return euclidean(y % x, x);
+            }
+
+
+
+        }
+        //Q3
+        public double FASTME(double b, double k, double m)
+        {
+
+            return Math.Pow(b, k) * Math.Abs(m);
+
+
+        }
+        static void Main(string[] args)
+        {
+       
+              Program p = new Program();
+              Console.WriteLine("ENTER b");
+              double B = int.Parse(Console.ReadLine());
+              Console.WriteLine("ENTER K");
+              double K = int.Parse(Console.ReadLine());
+              Console.WriteLine("ENTER M");
+              double M = int.Parse(Console.ReadLine());
+              double N = p.FASTME(2, 2, -3);
+              Console.WriteLine("ans="+N);
+              Console.WriteLine("**************************************************");
+
+
+
+
+
+            Console.WriteLine("enter first value");
+           
+            int d = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter second value");
+            int f = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("GCD=" + p.euclidean(d, f));
+
+
+
+            //Q3)
+            Console.WriteLine("length of matrix?");
+            int m = int.Parse(Console.ReadLine());
+            int[] arr = new int[m];
+            for (int i = 0; i < m; i++)
+            {
+                Console.WriteLine("enter element of A");
+                arr[i] = int.Parse(Console.ReadLine());
+            }
+
+
+            int[,] arr2 = new int[m, m];
+            Console.Write("A=");
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.Write(arr[i]);
+            }
+            Console.WriteLine();
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    arr2[i, j] = 0;
+                }
+
+            }
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(arr2[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
+
+            Console.WriteLine("no. of relations?");
+            int r = int.Parse(Console.ReadLine());
+            int k = 0;
+            while (r > k)
+            {
+
+
+
+                Console.Write("x=");
+                int x = int.Parse(Console.ReadLine());
+                Console.Write("y=");
+                int y = int.Parse(Console.ReadLine());
+                if (arr.Contains(x) && arr.Contains(y))
+                {
+                    arr2[x-1, y-1] = 1;
+                    k++;
+                }
+                else
+                {
+                    Console.WriteLine("invalid function");
+
+                }
+                Console.WriteLine();
+
+
+            }
+            for (int i = 0; i < m; i++)
+            {
+                for (int j = 0; j < m; j++)
+                {
+                    Console.Write(arr2[i, j] + " ");
+                }
+
+                Console.WriteLine();
+            }
+
+
+
+
+
+
+
+
+            Console.ReadLine();
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+
+
+    }
+}
